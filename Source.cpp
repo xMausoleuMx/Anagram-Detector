@@ -9,8 +9,9 @@ bool checkAnagram(string phraseOne, string phraseTwo)
 	int counter[256] = { 0 };
 	for (int i = 0; i < phraseOne.size(); i++) counter[toupper(phraseOne[i])]++;
 	for (int i = 0; i < phraseTwo.size(); i++) counter[toupper(phraseTwo[i])]--;
-	for (int i = 'A'; i < 'Z'; i++)
+	for (int i = 0; i < 256; i++)
 	{
+		if (i == 32) i++;
 		if (counter[i] != 0) return false;
 	}
 	return true;
